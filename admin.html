@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Noor Public School</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px #00000012;
+            text-align: center;
+        }
+
+        .login-box img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .login-box h1 {
+            color: #075e45;
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .login-box p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.88;
+        }
+
+        .primary-btn {
+            background: #087f5b;
+            color: white;
+            width: 100%;
+        }
+
+        .error {
+            color: #dc2626;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        #dashboard {
+            display: none;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #064e3b;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            padding: 25px 15px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 22px;
+        }
+
+        .sidebar button,
+        .sidebar a {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 13px;
+            margin-bottom: 8px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .sidebar button:hover,
+        .sidebar a:hover {
+            background: #ffffff20;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .topbar {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px #00000008;
+        }
+
+        .topbar h1 {
+            color: #075e45;
+            margin-bottom: 7px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 23px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000008;
+        }
+
+        .stat-card h3 {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #087f5b;
+        }
+
+        .panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px #00000008;
+        }
+
+        .panel h2 {
+            margin-bottom: 20px;
+            color: #075e45;
+        }
+
+        .panel textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .action-btn {
+            background: #087f5b;
+            color: white;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .danger-btn {
+            background: #dc2626;
+            color: white;
+        }
+
+        .message-card {
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .message-card p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .notice {
+            background: #ecfdf5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .small-note {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+            }
+
+            .sidebar h2 {
+                margin-bottom: 15px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ADMIN LOGIN -->
+    <section class="login-container" id="loginSection">
+        <div class="login-box">
+
+            <img
+                src="https://i.ibb.co/PGTJ0D4g/logo.png"
+                alt="Noor Public School Logo"
+            >
+
+            <h1>Admin Login</h1>
+            <p>Noor Public School Management</p>
+
+            <form id="loginForm">
+                <input
+                    type="text"
+                    id="adminUsername"
+                    placeholder="Admin Username"
+                    autocomplete="username"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Admin Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button class="primary-btn" type="submit">
+                    Login to Dashboard
+                </button>
+            </form>
+
+            <div class="error" id="loginError" role="alert"></div>
+
+            <p class="small-note">
+                Note: This starter login is for local testing only.
+                Do not publish it as a secure login system.
+            </p>
+        </div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="dashboard">
+
+        <aside class="sidebar">
+            <h2>🏫 Noor Admin</h2>
+
+            <a href="#overview">📊 Dashboard</a>
+            <a href="#notices">📢 School Notice</a>
+            <a href="#messages">📩 Contact Messages</a>
+            <a href="#gallery">🖼️ Gallery</a>
+
+            <a href="index.html">🌐 Main Website</a>
+
+            <button type="button" id="logoutButton">
+                🚪 Logout
+            </button>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar" id="overview">
+                <h1>Admin Dashboard</h1>
+                <p>Welcome to Noor Public School Management Panel.</p>
+            </header>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Saved Contact Messages</h3>
+                    <p id="messageCount">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Gallery Images</h3>
+                    <p id="galleryCount">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>School Notice</h3>
+                    <p id="noticeStatus">None</p>
+                </div>
+            </div>
+
+            <!-- NOTICE MANAGEMENT -->
+            <section class="panel" id="notices">
+                <h2>📢 School Notice</h2>
+
+                <textarea
+                    id="noticeInput"
+                    placeholder="Write a school notice..."
+                ></textarea>
+
+                <button class="action-btn" id="saveNoticeButton">
+                    Save Notice
+                </button>
+
+                <button class="danger-btn" id="deleteNoticeButton">
+                    Delete Notice
+                </button>
+
+                <h3 style="margin-top: 22px; margin-bottom: 12px;">
+                    Current Notice
+                </h3>
+
+                <div class="notice" id="currentNotice">
+                    No notice available.
+                </div>
+
+                <p class="small-note">
+                    This starter version stores the notice in this browser.
+                    It will not automatically update other devices or the
+                    public website without a shared database connection.
+                </p>
+            </section>
+
+            <!-- CONTACT MESSAGES -->
+            <section class="panel" id="messages">
+                <h2>📩 Contact Messages</h2>
+
+                <div id="messagesList">
+                    <p>No saved messages available.</p>
+                </div>
+
+                <button class="danger-btn" id="clearMessagesButton">
+                    Clear All Messages
+                </button>
+
+                <p class="small-note">
+                    Messages will appear here only after a form is connected
+                    to save them. Existing WhatsApp messages are not
+                    automatically imported into this panel.
+                </p>
+            </section>
+
+            <!-- GALLERY -->
+            <section class="panel" id="gallery">
+                <h2>🖼️ Gallery Images</h2>
+
+                <p>
+                    Your school pictures can be displayed on the main
+                    website's gallery.
+                </p>
+
+                <div id="galleryList" style="margin-top: 18px;"></div>
+
+                <p class="small-note">
+                    This section currently displays the configured image
+                    links. Adding or deleting images here will require
+                    additional shared-storage functionality to update
+                    the public website.
+                </p>
+            </section>
+
+        </main>
+    </section>
+
+    <script>
+        /*
+         * IMPORTANT:
+         * This is a local demonstration login, NOT secure authentication.
+         * Do not use these demo credentials on a publicly deployed website.
+         * A real public admin panel needs server-side authentication.
+         */
+
+        const DEMO_USERNAME = "admin";
+        const DEMO_PASSWORD = "12345";
+
+        const IMAGE_URLS = [
+            "https://i.ibb.co/PGTJ0D4g/logo.png",
+            "https://i.ibb.co/35xC9nnV/classroom1.jpg",
+            "https://i.ibb.co/svH3VR9k/najeebsir.jpg",
+            "https://i.ibb.co/GQD53JJT/Screenshot-2026-10-09-161717.png",
+            "https://i.ibb.co/5Cq9tsv/Screenshot-2026-10-09-161929.png",
+            "https://i.ibb.co/0yfy5vvP/Screenshot-2026-10-09-162012.png",
+            "https://i.ibb.co/Z1d4D2vr/Screenshot-2026-10-09-162548.png",
+            "https://i.ibb.co/Pvx5NzCn/Screenshot-2026-10-09-162610.png",
+            "https://i.ibb.co/Xr24rwDg/Screenshot-2026-10-09-162638.png",
+            "https://i.ibb.co/3YYmNVJz/Screenshot-2026-10-09-162714.png",
+            "https://i.ibb.co/ynpknm8R/Screenshot-2026-10-09-162824.png",
+            "https://i.ibb.co/W4ZgPkTG/Screenshot-2026-10-09-162938.png"
+        ];
+
+        const $ = (id) => document.getElementById(id);
+
+        $("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const username = $("adminUsername").value.trim();
+            const password = $("adminPassword").value;
+
+            if (
+                username === DEMO_USERNAME &&
+                password === DEMO_PASSWORD
+            ) {
+                $("loginError").textContent = "";
+                $("loginSection").style.display = "none";
+                $("dashboard").style.display = "block";
+                renderDashboard();
+            } else {
+                $("loginError").textContent =
+                    "Incorrect demo username or password.";
+            }
+        });
+
+        $("logoutButton").addEventListener("click", function () {
+            $("dashboard").style.display = "none";
+            $("loginSection").style.display = "flex";
+            $("loginForm").reset();
+            $("loginError").textContent = "";
+        });
+
+        function renderDashboard() {
+            renderNotice();
+            renderMessages();
+            renderGallery();
+
+            const messages = getMessages();
+            $("messageCount").textContent = messages.length;
+            $("galleryCount").textContent = IMAGE_URLS.length;
+        }
+
+        function renderNotice() {
+            const notice = localStorage.getItem("noorSchoolNotice") || "";
+
+            $("noticeInput").value = notice;
+            $("currentNotice").textContent =
+                notice || "No notice available.";
+
+            $("noticeStatus").textContent =
+                notice ? "Published locally" : "None";
+        }
+
+        $("saveNoticeButton").addEventListener("click", function () {
+            const notice = $("noticeInput").value.trim();
+
+            if (!notice) {
+                alert("Please write a notice first.");
+                return;
+            }
+
+            localStorage.setItem("noorSchoolNotice", notice);
+            renderNotice();
+            alert("Notice saved in this browser.");
+        });
+
+        $("deleteNoticeButton").addEventListener("click", function () {
+            if (!confirm("Delete the saved notice?")) return;
+
+            localStorage.removeItem("noorSchoolNotice");
+            renderNotice();
+        });
+
+        function getMessages() {
+            try {
+                const messages = JSON.parse(
+                    localStorage.getItem("noorContactMessages") || "[]"
+                );
+
+                return Array.isArray(messages) ? messages : [];
+            } catch {
+                return [];
+            }
+        }
+
+        function renderMessages() {
+            const messages = getMessages();
+            const list = $("messagesList");
+
+            list.replaceChildren();
+
+            $("messageCount").textContent = messages.length;
+
+            if (messages.length === 0) {
+                const empty = document.createElement("p");
+                empty.textContent = "No saved messages available.";
+                list.appendChild(empty);
+                return;
+            }
+
+            messages.forEach(function (message) {
+                const card = document.createElement("article");
+                card.className = "message-card";
+
+                const fields = [
+                    ["Name", message.name],
+                    ["Email", message.email],
+                    ["Phone", message.phone],
+                    ["Message", message.message],
+                    ["Date", message.date]
+                ];
+
+                fields.forEach(function ([label, value]) {
+                    const p = document.createElement("p");
+                    const strong = document.createElement("strong");
+
+                    strong.textContent = label + ": ";
+                    p.appendChild(strong);
+                    p.appendChild(
+                        document.createTextNode(value || "Not provided")
+                    );
+
+                    card.appendChild(p);
+                });
+
+                list.appendChild(card);
+            });
+        }
+
+        $("clearMessagesButton").addEventListener("click", function () {
+            if (!confirm("Delete all locally saved contact messages?")) return;
+
+            localStorage.removeItem("noorContactMessages");
+            renderMessages();
+        });
+
+        function renderGallery() {
+            const gallery = $("galleryList");
+            gallery.replaceChildren();
+
+            gallery.style.display = "grid";
+            gallery.style.gridTemplateColumns =
+                "repeat(auto-fit, minmax(140px, 1fr))";
+            gallery.style.gap = "12px";
+
+            IMAGE_URLS.forEach(function (url) {
+                const img = document.createElement("img");
+                img.src = url;
+                img.alt = "Noor Public School gallery image";
+                img.loading = "lazy";
+                img.style.width = "100%";
+                img.style.height = "130px";
+                img.style.objectFit = "cover";
+                img.style.borderRadius = "8px";
+
+                img.addEventListener("error", function () {
+                    img.alt = "Image could not be loaded";
+                    img.style.display = "none";
+                });
+
+                gallery.appendChild(img);
+            });
+        }
+    </script>
+ <!-- =====================================
+     NOOR PUBLIC SCHOOL ADMIN FOOTER
+===================================== -->
+
+<footer class="admin-footer">
+
+    <div class="admin-footer-content">
+
+        <!-- Logo + School Name -->
+        <div class="admin-footer-brand">
+
+            <img
+                src="https://i.ibb.co/PGTJ0D4g/logo.png"
+                alt="Noor Public School Logo"
+            >
+
+            <h3>Noor Public School</h3>
+
+        </div>
+
+        <p class="admin-footer-subtitle">
+            Admin Management Panel
+        </p>
+
+        <!-- Footer Buttons -->
+        <div class="admin-footer-links">
+
+            <a href="index.html">
+                🏠 Main Website
+            </a>
+
+            <a href="#overview">
+                📊 Dashboard
+            </a>
+
+        </div>
+
+        <div class="admin-footer-line"></div>
+
+        <!-- Copyright -->
+        <p class="admin-copyright">
+            © <span id="adminFooterYear"></span>
+            Noor Public School. All Rights Reserved.
+        </p>
+
+        <p class="admin-footer-credit">
+            Website Developed by Muhammad Wasif
+        </p>
+
+    </div>
+
+</footer>
+
+<script>
+    document.getElementById("adminFooterYear").textContent =
+        new Date().getFullYear();
+</script>
+<script>
+    document.getElementById("adminFooterYear").textContent =
+        new Date().getFullYear();
+</script>
+
+
+
+</body>
+</html>

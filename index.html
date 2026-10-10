@@ -1,0 +1,1433 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description"
+    content="Noor Public School - Learn, Grow, Shine. A caring environment for academic excellence, character and confidence." />
+
+  <meta name="author" content="Muhammad Wasif S/O Muhammad Asif" />
+
+  <title>Noor Public School | Learn • Grow • Shine</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body id="home">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="header" id="home">
+
+    <div class="container nav">
+
+      <a class="brand" href="#home">
+
+        <div class="logo">
+          <img
+            src="/My-project/images/logo.jpg"
+            alt="Noor Public School Logo"
+          >
+        </div>
+
+        <div>
+          <strong>Noor Public School</strong>
+          <small>Learn • Grow • Shine</small>
+        </div>
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+
+      <nav class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#principal">Principal</a>
+
+        <a href="#academics">Academics</a>
+
+        <a href="#facilities">Facilities</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#admissions">Admissions</a>
+
+        <a href="#contact">Contact</a>
+
+        
+    <a href="admin.html" class="admin-btn">🔐 Admin</a>
+
+
+      </nav>
+
+
+      <a
+        class="btn btn-small nav-cta"
+        href="#admissions"
+      >
+        Apply Now
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-bg"></div>
+
+      <div class="container hero-content">
+
+        <div class="hero-copy">
+
+          <div class="eyebrow">
+            WELCOME TO NOOR PUBLIC SCHOOL
+          </div>
+
+          <h1>
+            Building bright minds for a
+            <em>brighter future.</em>
+          </h1>
+
+          <p>
+            We create a caring, confident and inspiring learning
+            environment where every child can discover their
+            potential and shine.
+          </p>
+
+
+          <div class="hero-actions">
+
+            <a
+              class="btn"
+              href="#admissions"
+            >
+              Start Admission <span>→</span>
+            </a>
+
+            <a
+              class="btn btn-ghost"
+              href="#about"
+            >
+              Discover Our School
+            </a>
+
+          </div>
+
+
+          <div class="stats">
+
+            <div>
+              <strong>17+</strong>
+              <span>Years of Excellence</span>
+            </div>
+
+            <div>
+              <strong>1,200+</strong>
+              <span>Happy Students</span>
+            </div>
+
+            <div>
+              <strong>20+</strong>
+              <span>Expert Teachers</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="card-glow"></div>
+
+          <span class="card-icon">🎓</span>
+
+          <h3>Admissions Open</h3>
+
+          <p>
+            Give your child a strong foundation for tomorrow.
+          </p>
+
+          <a href="#admissions">
+            View Admission Details →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ADMIN MESSAGE
+         ===================================================== -->
+
+    <section
+      class="admin-message-section"
+      id="adminMessage"
+    >
+
+      <div class="admin-message-container">
+
+        <h2>📢 Admin Message</h2>
+
+
+        <div
+          id="publicMessage"
+          class="public-message"
+        >
+
+          <p id="messageText">
+            No message available.
+          </p>
+
+        </div>
+
+
+        <!-- Admin Login -->
+
+        <div
+          id="adminLogin"
+          class="admin-login"
+        >
+
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter Admin Password"
+          >
+
+          <button onclick="adminLogin()">
+            Admin Login
+          </button>
+
+          <p id="loginError"></p>
+
+        </div>
+
+
+        <!-- Admin Panel -->
+
+        <div
+          id="adminPanel"
+          class="admin-panel"
+        >
+
+          <textarea
+            id="adminMessageInput"
+            placeholder="Write your message here..."
+          ></textarea>
+
+
+          <button onclick="sendAdminMessage()">
+            Send Message
+          </button>
+
+
+          <button
+            onclick="deleteAdminMessage()"
+            class="delete-btn"
+          >
+            Delete Message
+          </button>
+
+
+          <button
+            onclick="adminLogout()"
+            class="logout-btn"
+          >
+            Logout
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section
+      class="section intro"
+      id="about"
+    >
+
+      <div class="container two-col">
+
+        <div>
+
+          <div class="eyebrow">
+            WHO WE ARE
+          </div>
+
+          <h2>
+            Where education meets
+            <span>character.</span>
+          </h2>
+
+          <p class="lead">
+            Noor Public School is committed to academic excellence,
+            good character and the all-round development of every
+            student.
+          </p>
+
+          <p>
+            Our classrooms encourage curiosity, creativity and
+            confidence. Along with strong academics, we focus on
+            discipline, communication, teamwork and values that
+            help students become responsible members of society.
+          </p>
+
+          <a
+            class="text-link"
+            href="#academics"
+          >
+            Explore our approach →
+          </a>
+
+        </div>
+
+
+        <div class="about-visual">
+
+          <div class="image-placeholder large">
+
+            <img
+              src="/My-project/images/image1.jpg"
+              alt="Noor Public School Campus"
+            >
+
+            <p>
+              School Campus Photo
+            </p>
+
+          </div>
+
+
+          <div class="mini-note">
+
+            <strong>Our Promise</strong>
+
+            <br>
+
+            Every child deserves to be seen,
+            supported and inspired.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRINCIPAL
+         ===================================================== -->
+
+    <section
+      class="principal-section"
+      id="principal"
+    >
+
+      <div class="container principal-box">
+
+        <div class="principal-photo-wrap">
+
+          <img
+            src="/My-project/images/najeebsir.jpg"
+            alt="Principal - Noor Public School"
+            class="principal-photo"
+          >
+
+
+          <div class="principal-badge">
+
+            Principal
+
+            <span>
+              Noor Public School
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="principal-copy">
+
+          <div class="eyebrow">
+            MESSAGE FROM THE PRINCIPAL
+          </div>
+
+
+          <h2>
+            Guiding every child toward a
+            <span>brighter future.</span>
+          </h2>
+
+
+          <p class="principal-quote">
+            “Education is not just about gaining knowledge;
+            it is about building character, confidence and a
+            strong sense of responsibility.”
+          </p>
+
+
+          <p>
+            Welcome to Noor Public School. Our aim is to provide
+            every student with a safe, caring and inspiring
+            environment where they can learn, grow and discover
+            their potential.
+          </p>
+
+
+          <p>
+            At Noor Public School, we believe that every child
+            is unique. With the partnership of dedicated teachers
+            and supportive parents, we strive to develop students
+            who are academically strong, morally responsible and
+            confident enough to face the future.
+          </p>
+
+
+          <p>
+            Together, let us guide our children towards a
+            brighter future.
+          </p>
+
+
+          <div class="principal-sign">
+
+            Sir Najeeb
+
+            <small>
+              Noor Public School
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCHOOL TIMINGS
+         ===================================================== -->
+
+    <section class="school-timing">
+
+      <div class="timing-container">
+
+        <div class="timing-heading">
+
+          <span>
+            OUR SCHEDULE
+          </span>
+
+          <h2>
+            School Timings
+          </h2>
+
+          <p>
+            Plan your school day with our regular timings.
+          </p>
+
+        </div>
+
+
+        <div class="timing-box">
+
+
+          <div class="timing-row">
+
+            <div class="day">
+
+              <i>📅</i>
+
+              <span>
+                Monday - Saturday
+              </span>
+
+            </div>
+
+            <strong>
+              8:00 AM - 12:30 PM
+            </strong>
+
+          </div>
+
+
+          <div class="timing-row">
+
+            <div class="day">
+
+              <i>📅</i>
+
+              <span>
+                Friday
+              </span>
+
+            </div>
+
+            <strong>
+              8:00 AM - 10:30 AM
+            </strong>
+
+          </div>
+
+
+          <div class="timing-row">
+
+            <div class="day">
+
+              <i>🏫</i>
+
+              <span>
+                Sunday
+              </span>
+
+            </div>
+
+            <strong>
+              Holiday
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ACADEMICS
+         ===================================================== -->
+
+    <section
+      class="section soft"
+      id="academics"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              ACADEMICS
+            </div>
+
+            <h2>
+              Learning designed for
+              <span>every stage.</span>
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="cards three">
+
+
+          <article class="feature-card">
+
+            <div class="icon">
+              🌱
+            </div>
+
+            <h3>
+              Early Years
+            </h3>
+
+            <p>
+              Playful, caring and activity-based learning
+              that builds confidence and curiosity.
+            </p>
+
+            <a href="#contact">
+              Learn more →
+            </a>
+
+          </article>
+
+
+
+          <article class="feature-card featured">
+
+            <div class="icon">
+              📖
+            </div>
+
+            <h3>
+              Primary School
+            </h3>
+
+            <p>
+              Strong foundations in languages, mathematics,
+              science and creative thinking.
+            </p>
+
+            <a href="#contact">
+              Learn more →
+            </a>
+
+          </article>
+
+
+
+          <article class="feature-card">
+
+            <div class="icon">
+              🚀
+            </div>
+
+            <h3>
+              Secondary School
+            </h3>
+
+            <p>
+              Focused academic preparation, leadership skills
+              and a pathway toward future goals.
+            </p>
+
+            <a href="#contact">
+              Learn more →
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FACILITIES
+         ===================================================== -->
+
+    <section
+      class="section"
+      id="facilities"
+    >
+
+      <div class="container">
+
+        <div class="center-head">
+
+          <div class="eyebrow">
+            WHY CHOOSE US
+          </div>
+
+          <h2>
+            A place where students
+            <span>thrive.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="facility-grid">
+
+
+          <div class="facility science">
+
+            <b>01</b>
+
+            <span>🔬</span>
+
+            <h3>
+              Science & Computer Labs
+            </h3>
+
+            <p>
+              Practical learning with modern resources.
+            </p>
+
+          </div>
+
+
+
+          <div class="facility library">
+
+            <b>02</b>
+
+            <span>📚</span>
+
+            <h3>
+              Rich Library
+            </h3>
+
+            <p>
+              A welcoming space for reading and discovery.
+            </p>
+
+          </div>
+
+
+
+          <div class="facility sports">
+
+            <b>03</b>
+
+            <span>⚽</span>
+
+            <h3>
+              Sports & Activities
+            </h3>
+
+            <p>
+              Healthy competition, teamwork and fun.
+            </p>
+
+          </div>
+
+
+
+          <div class="facility arts">
+
+            <b>04</b>
+
+            <span>🎨</span>
+
+            <h3>
+              Arts & Creativity
+            </h3>
+
+            <p>
+              Opportunities to express, create and perform.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+ <!-- ==========================================
+     NOOR PUBLIC SCHOOL - PREMIUM GALLERY
+========================================== -->
+
+<section class="gallery-section" id="gallery">
+
+    <div class="gallery-heading">
+        <span class="gallery-tag">DISCOVER OUR SCHOOL</span>
+
+        <h2>
+            Life at <span>Noor Public School</span>
+        </h2>
+
+        <p>
+            Explore our campus, learning environment, and
+            the moments that make our school special.
+        </p>
+    </div>
+
+    <div class="gallery-grid">
+
+        <button type="button" class="gallery-card gallery-card-large"
+            data-image="https://i.ibb.co/35xC9nnV/classroom1.jpg"
+            data-title="Our School Campus">
+
+            <img
+                src="https://i.ibb.co/35xC9nnV/classroom1.jpg"
+                alt="Noor Public School Campus"
+                loading="lazy"
+            >
+
+            <span class="gallery-overlay">
+                <span class="gallery-category">OUR CAMPUS</span>
+                <span class="gallery-card-title">Our School Campus</span>
+                <span class="gallery-view">View Photo ↗</span>
+            </span>
+        </button>
+
+
+        <button type="button" class="gallery-card"
+            data-image="https://i.ibb.co/GQD53JJT/Screenshot-2026-10-09-161717.png"
+            data-title="School Memories">
+
+            <img
+                src="https://i.ibb.co/GQD53JJT/Screenshot-2026-10-09-161717.png"
+                alt="School Memories"
+                loading="lazy"
+            >
+
+            <span class="gallery-overlay">
+                <span class="gallery-category">SCHOOL LIFE</span>
+                <span class="gallery-card-title">School Memories</span>
+                <span class="gallery-view">View Photo ↗</span>
+            </span>
+        </button>
+
+
+        <button type="button" class="gallery-card"
+            data-image="https://i.ibb.co/svH3VR9k/najeebsir.jpg"
+            data-title="Our School Team">
+
+            <img
+                src="https://i.ibb.co/svH3VR9k/najeebsir.jpg"
+                alt="Noor Public School Team"
+                loading="lazy"
+            >
+
+            <span class="gallery-overlay">
+                <span class="gallery-category">OUR TEAM</span>
+                <span class="gallery-card-title">Our School Team</span>
+                <span class="gallery-view">View Photo ↗</span>
+            </span>
+        </button>
+
+
+        <button type="button" class="gallery-card"
+            data-image="https://i.ibb.co/5Cq9tsv/Screenshot-2026-10-09-161929.png"
+            data-title="Learning Together">
+
+            <img
+                src="https://i.ibb.co/5Cq9tsv/Screenshot-2026-10-09-161929.png"
+                alt="Learning Together"
+                loading="lazy"
+            >
+
+            <span class="gallery-overlay">
+                <span class="gallery-category">LEARNING</span>
+                <span class="gallery-card-title">Learning Together</span>
+                <span class="gallery-view">View Photo ↗</span>
+            </span>
+        </button>
+
+
+        <button type="button" class="gallery-card gallery-card-large"
+            data-image="https://i.ibb.co/0yfy5vvP/Screenshot-2026-10-09-162012.png"
+            data-title="Memories and Achievements">
+
+            <img
+                src="https://i.ibb.co/0yfy5vvP/Screenshot-2026-10-09-162012.png"
+                alt="School Activities and Memories"
+                loading="lazy"
+            >
+
+            <span class="gallery-overlay">
+                <span class="gallery-category">OUR JOURNEY</span>
+                <span class="gallery-card-title">Memories and Achievements</span>
+                <span class="gallery-view">View Photo ↗</span>
+            </span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- IMAGE LIGHTBOX: Opens inside this website -->
+
+<div class="gallery-lightbox" id="galleryLightbox"
+     aria-hidden="true">
+
+    <button type="button"
+        class="gallery-lightbox-close"
+        id="galleryLightboxClose"
+        aria-label="Close image">
+        &times;
+    </button>
+
+    <button type="button"
+        class="gallery-lightbox-nav gallery-lightbox-prev"
+        id="galleryLightboxPrev"
+        aria-label="Previous image">
+        &#10094;
+    </button>
+
+    <div class="gallery-lightbox-content">
+
+        <img
+            id="galleryLightboxImage"
+            src=""
+            alt=""
+        >
+
+        <div class="gallery-lightbox-caption"
+             id="galleryLightboxCaption"></div>
+
+    </div>
+
+    <button type="button"
+        class="gallery-lightbox-nav gallery-lightbox-next"
+        id="galleryLightboxNext"
+        aria-label="Next image">
+        &#10095;
+    </button>
+
+</div>
+
+
+    <!-- =====================================================
+         ADMISSIONS
+         ===================================================== -->
+
+    <section
+      class="section admission"
+      id="admissions"
+    >
+
+      <div class="container admission-inner">
+
+        <div>
+
+          <div class="eyebrow light">
+            ADMISSIONS 2026–27
+          </div>
+
+          <h2>
+            A brighter journey starts
+            <em>here.</em>
+          </h2>
+
+          <p>
+            Admissions are open. Contact the school office
+            to learn about available classes, fees, timings
+            and the admission process.
+          </p>
+
+        </div>
+
+
+        <a
+          class="btn light-btn"
+          href="#contact"
+        >
+          Contact Admissions →
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <section
+      class="section contact-section"
+      id="contact"
+    >
+
+      <div class="container two-col contact-grid">
+
+
+        <!-- CONTACT INFO -->
+
+        <div>
+
+          <div class="eyebrow">
+            GET IN TOUCH
+          </div>
+
+
+          <h2>
+            We'd love to
+            <span>hear from you.</span>
+          </h2>
+
+
+          <p>
+            Have a question, suggestion or want to know more
+            about the website? Feel free to contact us.
+          </p>
+
+
+          <div class="contact-list">
+
+
+            <!-- Owner -->
+
+            <div>
+
+              👤
+
+              <span>
+
+                <strong>
+                  Website Owner
+                </strong>
+
+                <br>
+
+                Muhammad Wasif S/O Muhammad Asif
+
+              </span>
+
+            </div>
+
+
+            <!-- Address -->
+
+            <div>
+
+              📍
+
+              <span>
+
+                <strong>
+                  Address
+                </strong>
+
+                <br>
+
+                Muhammadi Colony, Karachi, Pakistan
+
+              </span>
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div>
+
+              📞
+
+              <span>
+
+                <strong>
+                  Phone
+                </strong>
+
+                <br>
+
+                <a
+                  href="tel:03007024050"
+                >
+                  03007024050
+                </a>
+
+              </span>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div>
+
+              ✉️
+
+              <span>
+
+                <strong>
+                  Email
+                </strong>
+
+                <br>
+
+                <a
+                  href="mailto:modammadwasif@gmail.com"
+                >
+                  modammadwasif@gmail.com
+                </a>
+
+              </span>
+
+            </div>
+
+
+            <!-- GitHub -->
+
+            <div>
+
+              💻
+
+              <span>
+
+                <strong>
+                  GitHub
+                </strong>
+
+                <br>
+
+                <a
+                  href="https://github.com/modammadwasif-creator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/modammadwasif-creator
+                </a>
+
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+          class="contact-form"
+          onsubmit="sendMessage(event)"
+        >
+
+          <h3>
+            Send us a message
+          </h3>
+
+
+          <input
+            id="name"
+            type="text"
+            placeholder="Your name"
+            required
+          >
+
+
+          <input
+            id="email"
+            type="email"
+            placeholder="Email address"
+            required
+          >
+
+
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Phone number"
+          >
+
+
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="How can we help?"
+            required
+          ></textarea>
+
+
+          <button
+            class="btn"
+            type="submit"
+          >
+            Send Message →
+          </button>
+
+
+          <p
+            class="form-note"
+            id="formNote"
+          ></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         WEBSITE SERVICES
+         ===================================================== -->
+
+    <section class="website-service">
+
+      <div class="service-container">
+
+
+        <div class="service-content">
+
+          <div class="eyebrow">
+            WEBSITE SERVICES
+          </div>
+
+
+          <h2>
+            Need a Website for
+            <span>Your Business?</span>
+          </h2>
+
+
+          <p>
+            We create modern, professional and responsive
+            websites for schools, businesses, hospitals
+            and personal brands.
+          </p>
+
+
+          <button
+            class="service-btn"
+            onclick="contactForWebsite()"
+          >
+            Contact on WhatsApp →
+          </button>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            💻
+          </div>
+
+          <h3>
+            Modern & Responsive
+          </h3>
+
+          <p>
+            Your website will look beautiful on mobile,
+            tablet and desktop devices.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+
+      <!-- Brand -->
+
+      <div>
+
+        <a
+          class="brand footer-brand"
+          href="#home"
+        >
+
+          <div class="logo">
+
+            <img
+              src="/My-project/images/logo.jpg"
+              alt="Noor Public School Logo"
+            >
+
+          </div>
+
+
+          <div>
+
+            <strong>
+              Noor Public School
+            </strong>
+
+            <small>
+              Learn • Grow • Shine
+            </small>
+
+          </div>
+
+        </a>
+
+
+        <p>
+          Building bright minds for a brighter future.
+        </p>
+
+      </div>
+
+
+
+      <!-- Quick Links -->
+
+      <div>
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#principal">
+          Principal
+        </a>
+
+        <a href="#academics">
+          Academics
+        </a>
+
+        <a href="#gallery">
+          Gallery
+        </a>
+
+        <a href="#admissions">
+          Admissions
+        </a>
+     <a href="admin.html#overview" class="admin-panel-badge">
+    <span class="admin-status-dot"></span>
+    ADMIN PANEL
+</a>    
+       </div>
+
+ 
+      <!-- Contact -->
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+
+        <span>
+          Muhammadi Colony, Karachi, Pakistan
+        </span>
+
+
+        <a href="tel:03007024050">
+          03007024050
+        </a>
+
+
+        <a href="mailto:modammadwasif@gmail.com">
+          modammadwasif@gmail.com
+        </a>
+
+
+        <a
+          href="https://github.com/modammadwasif-creator"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Profile
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+      ©
+      <span id="year"></span>
+
+      Noor Public School.
+
+      All rights reserved.
+
+      <br>
+
+      <span>
+        Website by Muhammad Wasif S/O Muhammad Asif
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       BACK TO TOP
+       ===================================================== -->
+
+  <button
+    class="to-top"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
